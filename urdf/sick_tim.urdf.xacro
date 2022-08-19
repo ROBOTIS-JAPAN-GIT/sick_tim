@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="sick_tim310" params="name ros_topic min_angle:=-2.357 max_angle:=2.357 min_range:=0.05 max_range:=4.0">
+  <xacro:macro name="sick_tim310" params="name ros_topic min_angle:=-2.3562 max_angle:=2.3562 min_range:=0.05 max_range:=4.0">
     <xacro:sick_tim name="${name}" ros_topic="${ros_topic}"
       length="0.06" width="0.06" height="0.079" mass="0.150" z_offset="0.05595"
       min_angle="${min_angle}" max_angle="${max_angle}"
@@ -9,7 +9,15 @@
       mesh="package://sick_tim/meshes/sick_tim310.stl" />
   </xacro:macro>
 
-  <xacro:macro name="sick_tim551" params="name ros_topic min_angle:=-2.357 max_angle:=2.357 min_range:=0.05 max_range:=10">
+  <xacro:macro name="sick_tim551" params="name ros_topic min_angle:=-2.3562 max_angle:=2.3562 min_range:=0.05 max_range:=10">
+    <xacro:sick_tim name="${name}" ros_topic="${ros_topic}" 
+      length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.06296"
+      min_range="${min_range}" max_range="${max_range}"
+      min_angle="${min_angle}" max_angle="${max_angle}"
+      mesh="package://sick_tim/meshes/sick_tim551.stl" />
+  </xacro:macro>
+
+  <xacro:macro name="sick_tim571" params="name ros_topic min_angle:=-2.3562 max_angle:=2.3562 min_range:=0.05 max_range:=25">
     <xacro:sick_tim name="${name}" ros_topic="${ros_topic}" 
       length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.06296"
       min_range="${min_range}" max_range="${max_range}"
@@ -39,9 +47,7 @@
         <geometry>
           <mesh filename="${mesh}" />
         </geometry>
-        <material name="blue" >
-          <color rgba="0 0 1 1" />
-        </material>
+        <material name="light_black" />
       </visual>
       <collision>
         <geometry>
@@ -67,7 +73,7 @@
         <always_on>true</always_on>
         <update_rate>${update_rate}</update_rate>
         <pose>0 0 0 0 0 0</pose>
-        <visualize>false</visualize>
+        <visualize>true</visualize>
         <ray>
           <scan>
             <horizontal>
